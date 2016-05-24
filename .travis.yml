@@ -15,7 +15,3 @@ script:
   - fab run_unit_tests
   - fab build_docs
   - fab run_robot_tests
-
-cache:
-  directories:
-  - robot/report
