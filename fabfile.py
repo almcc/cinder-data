@@ -23,6 +23,13 @@ def build_docs():
     local('docker-compose run docs make dirhtml')
 
 
+def run_unit_tests():
+    """Builds the dev image and runs the unit tests.
+    """
+    local('docker-compose build dev')
+    local('docker-compose run --rm dev nosetests --with-coverage tests/')
+
+
 def run_robot_tests():
     """Run the robot test suites in robot/suites/* and put the report in robot/reports directory.
     """

@@ -1,3 +1,5 @@
 requests
 inflection
 schematics
+nose
+coverage

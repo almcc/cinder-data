@@ -12,4 +12,6 @@ services:
   - docker
 
 script:
-- fab run_robot_tests
+  - fab run_unit_tests
+  - fab build_docs
+  - fab run_robot_tests
