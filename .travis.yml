@@ -1,0 +1,16 @@
+sudo: required
+
+language: python
+
+python:
+  - "2.6"
+  - "2.7"
+
+install:
+  - pip install fabric
+
+services:
+  - docker
+
+script:
+- fab run_robot_tests
