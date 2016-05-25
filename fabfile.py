@@ -17,6 +17,12 @@ def stop_and_clean_docker():
     local('docker-compose rm -f')
 
 
+def build_package():
+    """Build the pip packages
+    """
+    local('docker-compose run --rm dev python setup.py sdist')
+
+
 def build_docs():
     """Build the html site and pdf file from the sphinx source.
     """
@@ -26,7 +32,6 @@ def build_docs():
 def run_unit_tests():
     """Builds the dev image and runs the unit tests.
     """
-    local('docker-compose build dev')
     local('docker-compose run --rm dev nosetests --with-coverage tests/')
 
 
