@@ -8,7 +8,6 @@ services:
 - docker
 script:
 - fab run_unit_tests
-- fab build_package
 - fab build_docs
 - fab run_robot_tests
 deploy:
@@ -18,5 +17,5 @@ deploy:
     secure: QqI0wR9RX8GzmFFD7HaNcLCUIGET7tMvjI2zqI/PK3svH9oG0habh2nv8Map+4J+Vw8w5SnTT4FurJ0HWhSMzdhevvFbYoRN4e08Iu/r50vQcSuAjxgvTmQPtyvgN4Uv4Reylg9pPU02DT09VkscXTrcKGvzP9Z/byKOe2JOHuzCjEswaO5p+tEZH1LV8oGsYqBm3+mJA33xsJ5MkbI+HXpIPZADwy4aseMNZNHEPaPDI/1/9T9L/+zaDLIO/HlVc2P1d89zVaYQkzjQ1ibwfKc0kWm9BU9LO5tPTaQhs57CbZy9Ad4/C7d2IZK0hGLFzy3xf4DLWlpj9MFGJaa1yeUZxIQjXZRGnXwqiSF1og86++DAJfH2vDyUS3107NTZZ0t4O/b10DAdfqO6Zdr3v5T2IBEZp6fVx7B6zhgU1vR64EUdbTUMs1ugtXPEJJ5MVRQJL5piVOiuBbHdHq3ClG57TMD0Hpv55gkgzu65faOlw9aqfxWKHIY7+E20ICAH5tfG9eKtutdVTzZNRG3CNctoLKaRBWeEsH9mwJdvc86/0mnklUxbTG9TdG49jWk25LYYQprfI9axlgAvemiBbBibgbQhe64kZfq+dBTdmbUysWtLKXnptZBH0tTx99zYj25ZfPUYo27Wj+xn77AtFFJK6Z0Om6l/2O67lAaUZWQ=
   on:
     tags: true
-    distributions: sdist bdist_wheel
+    distributions: sdist
     repo: almcc/cinder-data
