@@ -3,3 +3,4 @@ inflection
 schematics
 nose
 coverage
+mock
