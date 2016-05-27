@@ -15,8 +15,8 @@ robot:
 docs:
   build: docs/
   volumes:
-     - ./docs:/docs
-  working_dir: /docs
+     - ./:/repo/
+  working_dir: /repo/docs
 
 client:
   build: .
