@@ -14,7 +14,7 @@ def stop_and_clean_docker():
     """Stop all the containers and clean up
     """
     local('docker-compose stop')
-    local('docker-compose rm -f --all')
+    local('docker-compose rm -f')
 
 
 def build_package():
@@ -45,4 +45,4 @@ def run_robot_tests():
     with settings(warn_only=True):
         local('docker-compose run --rm robot bash run-tests.sh')
     local("docker-compose stop")
-    local("docker-compose rm -f --all")
+    local("docker-compose rm -f")
