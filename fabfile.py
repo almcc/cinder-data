@@ -26,8 +26,7 @@ def build_package():
 def build_docs():
     """Build the html site and pdf file from the sphinx source.
     """
-    local('docker-compose run --rm docs sphinx-apidoc -o code /repo/cinder_data ')
-    local('docker-compose run --rm docs make dirhtml')
+    local('docker-compose run --rm docs bash make-docs.sh')    
 
 
 def run_unit_tests():
