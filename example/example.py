@@ -30,3 +30,7 @@ if __name__ == '__main__':
     records = store.find_all(Manufacturer)
     for record in records:
         print record.name
+
+    records = store.peek_all(Car)
+    for record in records:
+        print record.name

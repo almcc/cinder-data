@@ -6,6 +6,8 @@
 Welcome to Cinder Data's documentation!
 =======================================
 
+A library inspired by ember-data for python projects.
+
 Contents:
 
 .. toctree::
@@ -19,4 +21,3 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-

@@ -6,4 +6,4 @@ cinder-data
 [![PyPI version](https://badge.fury.io/py/cinder-data.svg)](https://badge.fury.io/py/cinder-data)
 [![GitHub version](https://badge.fury.io/gh/almcc%2Fcinder-data.svg)](https://badge.fury.io/gh/almcc%2Fcinder-data)
 
-A port of the excellent ember-data library for Python projects.
+A library inspired by ember-data for python projects.
