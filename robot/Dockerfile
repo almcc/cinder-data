@@ -8,6 +8,6 @@ RUN \
   yum clean all ;\
   pip install --upgrade pip
 
-  ADD requirements.txt /tmp/
+ADD requirements.txt /tmp/
 
-  RUN pip install -r /tmp/requirements.txt
+RUN pip install -r /tmp/requirements.txt
