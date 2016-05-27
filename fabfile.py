@@ -32,7 +32,8 @@ def build_docs():
 def run_unit_tests():
     """Builds the dev image and runs the unit tests.
     """
-    local('docker-compose run --rm dev nosetests --with-coverage tests/')
+    local('docker-compose build dev')
+    local('docker-compose run --rm dev nosetests --verbosity=2 -s --with-coverage --cover-package=cinder_data --cover-inclusive --cover-erase  --cover-branches --cover-html --cover-html-dir=coverage-report/ tests/')
 
 
 def run_robot_tests():

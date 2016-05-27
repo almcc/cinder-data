@@ -3,3 +3,4 @@
 MANIFEST
 dist/
 cinder_data.egg-info/
+coverage-report/
