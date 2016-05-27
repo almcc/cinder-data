@@ -7,8 +7,8 @@ dev:
 robot:
   build: robot/
   volumes:
-     - ./robot:/robot
-  working_dir: /robot
+     - ./:/repo/
+  working_dir: /repo/robot
   links:
     - server
 
@@ -17,7 +17,7 @@ docs:
   volumes:
      - ./docs:/docs
   working_dir: /docs
-  
+
 client:
   build: .
   volumes:

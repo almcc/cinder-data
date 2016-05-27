@@ -3,7 +3,7 @@ import inflection
 
 
 class Store(object):
-    def __init__(self, host, namespace='', cache=None):
+    def __init__(self, host, namespace, cache=None):
         super(Store, self).__init__()
         self._host = host
         self._namespace = namespace
@@ -57,19 +57,15 @@ class Store(object):
 
     @staticmethod
     def _translate_name(name):
-        underscored = inflection.underscore(name)
+        pluralized = inflection.pluralize(name)
+        underscored = inflection.underscore(pluralized)
         dasherized = inflection.dasherize(underscored)
-        words = dasherized.split('-')
-        last_word = words.pop()
-        words.append(inflection.pluralize(last_word))
-        return '-'.join(words)
+        return dasherized
 
     @staticmethod
     def _build_param_string(params):
         pairs = []
         for key, value in params.iteritems():
-            if value is None:
-                value = ''
             pairs.append('{}={}'.format(key, value))
         if len(pairs) > 0:
             return '?{}'.format('&'.join(pairs))

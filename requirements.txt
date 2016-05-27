@@ -1,6 +1,6 @@
-requests
-inflection
-schematics
+inflection>=0.3.1
+requests>=2.10.0
+schematics>=1.1.1
 nose
 coverage
 mock
