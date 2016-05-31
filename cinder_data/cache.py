@@ -1,5 +1,8 @@
+"""Cinder Data caching systems."""
+
+
 class Cache(object):
-    """Cache interface"""
+    """Cache interface."""
 
     def get_record(self, name, record_id):
         """Should retrieve a record with a given type name and record id.
@@ -67,7 +70,7 @@ class MemoryCache(Cache):
                 return self._cache[name][record_id]
 
     def get_records(self, name):
-        """Returns all the records for the given name in the cache.
+        """Return all the records for the given name in the cache.
 
         Args:
             name (string): The name which the required models are stored under.

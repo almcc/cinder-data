@@ -26,7 +26,7 @@ def build_package():
 def build_docs():
     """Build the html site and pdf file from the sphinx source.
     """
-    local('docker-compose run --rm docs bash make-docs.sh')    
+    local('docker-compose run --rm docs bash make-docs.sh')
 
 
 def run_unit_tests():
@@ -47,3 +47,10 @@ def run_robot_tests():
         local('docker-compose run --rm robot bash run-tests.sh')
     local("docker-compose stop")
     local("docker-compose rm -f")
+
+
+def run_linter():
+    """Run the linter tools against he source
+    """
+    local('docker-compose run --rm linter flake8 cinder_data')
+    local('docker-compose run --rm linter rflint -v -r robot/')

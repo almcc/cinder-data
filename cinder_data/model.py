@@ -1,5 +1,7 @@
+"""Cinder Data starter models."""
+
 from schematics.models import Model
-from schematics.types import IntType, DateTimeType
+from schematics.types import DateTimeType, IntType
 
 
 class CinderModel(Model):
@@ -12,15 +14,17 @@ class CinderModel(Model):
     Attributes:
         id (:class:`schematics.types.base.IntType`): The model id.
     """
+
     id = IntType(required=True)
 
 
 class DjangoModel(CinderModel):
-    """A subclass of :class:`cinder_data.model.CinderModel` the includes user Django Admin attributes.
+    """A subclass of :class:`.CinderModel` the includes user Django Admin attributes.
 
     Attributes:
         created_at (:class:`schematics.types.base.DateTimeType`): Django admin created_at
         updated_at (:class:`schematics.types.base.DateTimeType`): Django admin updated_at
     """
+
     created_at = DateTimeType()
     updated_at = DateTimeType()
