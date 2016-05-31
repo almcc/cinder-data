@@ -12,6 +12,12 @@ robot:
   links:
     - server
 
+linter:
+  build: linter/
+  volumes:
+     - ./:/cinder/
+  working_dir: /cinder/
+
 docs:
   build: docs/
   volumes:

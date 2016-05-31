@@ -1,4 +1,3 @@
-import mock
 import unittest
 
 from cinder_data.cache import Cache

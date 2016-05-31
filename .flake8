@@ -1,0 +1,15 @@
+[flake8]
+max-line-length = 100
+max-complexity = 10
+ignore = I201,D100,D104,D105
+exclude =
+  example/server/manage.py,
+  example/server/cars/migrations/*,
+  example/server/app/*,
+  example/server/cars/apps.py,
+  example/server/cars/tests.py
+putty-ignore =
+  *test_*.py : +D100,D101,D102
+  *docs/conf.py : +D100,E265,E122
+  *example/example.py : +D100,D101,T001
+  *fabfile.py : +D100,T003

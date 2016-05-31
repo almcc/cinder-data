@@ -1,13 +1,12 @@
-import mock
 import unittest
+import mock
 
-from cinder_data.store import Store
 from cinder_data.cache import MemoryCache
 from cinder_data.model import DjangoModel
-from schematics.types import StringType
-
+from cinder_data.store import Store
 from fixtures import example_get_car
 from fixtures import example_get_cars
+from schematics.types import StringType
 
 
 class TestStore(unittest.TestCase):
@@ -44,7 +43,7 @@ class TestStore(unittest.TestCase):
         mock_cache = mock.create_autospec(MemoryCache)
         store = Store('http://localhost:1234', namespace='api/v1', cache=mock_cache)
         mock_cache.get_record.return_value = None
-        record = store.find_record(Car, 1)
+        store.find_record(Car, 1)
         mock_cache.get_record.assert_called_with('Car', 1)
         mock_get_record.assert_called_with(Car, 1)
 
@@ -57,7 +56,7 @@ class TestStore(unittest.TestCase):
         car = Car({'id': 1, 'name': 'F430'})
         store = Store('http://localhost:1234', namespace='api/v1', cache=mock_cache)
         mock_cache.get_record.return_value = car
-        record = store.find_record(Car, 1)
+        store.find_record(Car, 1)
         mock_cache.get_record.assert_called_with('Car', 1)
         self.assertFalse(mock_get_record.called)
 
@@ -66,7 +65,7 @@ class TestStore(unittest.TestCase):
         class Car(DjangoModel):
             name = StringType()
         store = Store('http://localhost:1234', namespace='api/v1')
-        record = store.find_record(Car, 1)
+        store.find_record(Car, 1)
         mock_get_record.assert_called_with(Car, 1)
 
     @mock.patch.object(Store, '_get_json')

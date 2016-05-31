@@ -1,5 +1,6 @@
-import requests
 import inflection
+import requests
+
 
 class Store(object):
     """A central store for all CRUD like activilty for models."""
@@ -20,7 +21,7 @@ class Store(object):
         self._cache = cache
 
     def find_record(self, model_class, record_id, reload=False):
-        """Returns a instance of model_class from the API or the local cache.
+        """Return a instance of model_class from the API or the local cache.
 
         Args:
             model_class (:class:`cinder_data.model.CinderModel`): A subclass of
@@ -38,7 +39,7 @@ class Store(object):
             return self._get_record(model_class, record_id)
 
     def peek_record(self, model_class, record_id):
-        """Returns an instance of the model_class from the cache if it is present.
+        """Return an instance of the model_class from the cache if it is present.
 
         Args:
             model_class (:class:`cinder_data.model.CinderModel`): A subclass of
@@ -54,7 +55,7 @@ class Store(object):
             return None
 
     def find_all(self, model_class, params={}):
-        """Returns an list of models from the API and caches the result.
+        """Return an list of models from the API and caches the result.
 
         Args:
             model_class (:class:`cinder_data.model.CinderModel`): A subclass of
@@ -82,7 +83,7 @@ class Store(object):
         return fresh_models
 
     def peek_all(self, model_class):
-        """Returns a list of models from the local cache.
+        """Return a list of models from the local cache.
 
         Args:
             model_class (:class:`cinder_data.model.CinderModel`): A subclass of
@@ -97,7 +98,7 @@ class Store(object):
             return []
 
     def _get_record(self, model_class, record_id):
-        """Gets a single record from the API.
+        """Get a single record from the API.
 
         Args:
             model_class (:class:`cinder_data.model.CinderModel`): A subclass of
@@ -136,7 +137,7 @@ class Store(object):
 
     @staticmethod
     def _translate_name(name):
-        """Translates the class name to the API endpoint.
+        """Translate the class name to the API endpoint.
 
         For example, Car would become cars, FastCar would become fast-cars.
 
@@ -155,7 +156,7 @@ class Store(object):
 
     @staticmethod
     def _build_param_string(params):
-        """Builds query params string from a dictionary.
+        """Build query params string from a dictionary.
 
         Args:
             params (dict): A dictionary of params
@@ -167,7 +168,7 @@ class Store(object):
         for key, value in params.iteritems():
             if value is None:
                 value = ''
-            pairs.append('{}={}'.format(key, value))
+            pairs.append('{0}={1}'.format(key, value))
         if len(pairs) > 0:
-            return '?{}'.format('&'.join(pairs))
+            return '?{0}'.format('&'.join(pairs))
         return ''
