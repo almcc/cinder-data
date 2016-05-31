@@ -16,6 +16,21 @@ import sphinx_rtd_theme
 import sys
 import os
 
+from sphinx.apidoc import main
+
+# Doing what is recomemed by https://github.com/rtfd/readthedocs.org/issues/1139
+def run_apidoc(_):
+    current_directory = os.path.abspath(os.path.dirname(__file__))
+    output_path = os.path.join(current_directory, 'source')
+    cmd_path = 'sphinx-apidoc'
+    if hasattr(sys, 'real_prefix'):  # Check to see if we are in a virtualenv
+        # If we are, assemble the path manually
+        cmd_path = os.path.abspath(os.path.join(sys.prefix, 'bin', 'sphinx-apidoc'))
+    main([cmd_path, '-e', '-o', output_path, '../cinder_data', '--force'])
+
+def setup(app):
+    app.connect('builder-inited', run_apidoc)
+
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
@@ -29,7 +44,11 @@ import os
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.todo', 'sphinx.ext.viewcode', 'sphinx.ext.autodoc', 'sphinxcontrib.napoleon']
+extensions = ['sphinx.ext.todo',
+              'sphinx.ext.viewcode',
+              'sphinx.ext.autodoc',
+              'sphinxcontrib.napoleon',
+              'sphinx.ext.intersphinx']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -287,3 +306,7 @@ texinfo_documents = [
 #texinfo_no_detailmenu = False
 
 autoclass_content = 'both'
+
+intersphinx_mapping = {
+    'schematics': ('https://schematics.readthedocs.io/en/latest/', None)
+}
