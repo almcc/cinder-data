@@ -1,4 +1,5 @@
 from fabric.api import local, settings
+from fabric.colors import yellow
 import time
 
 
@@ -49,3 +50,13 @@ def run_linter():
     """Run the linter tools against he source."""
     local('docker-compose run --rm linter flake8 .')
     local('docker-compose run --rm linter rflint -v -r robot/')
+
+
+def run_ci_targets():
+    """Run the same targets that travis-ci will."""
+    print(yellow('WARNING: This fab target has to be manually kept in with .travis.yml, '
+                 'there is no guarantee that they are actually in sync.'))
+    run_linter()
+    run_unit_tests()
+    build_docs()
+    run_robot_tests()

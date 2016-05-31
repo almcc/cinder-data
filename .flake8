@@ -12,3 +12,4 @@ putty-ignore =
   *test_*.py : +D100,D101,D102
   *docs/conf.py : +D100,E265,E122
   *example/example.py : +D100,D101,T001
+  *fabfile.py : +D100,T003
