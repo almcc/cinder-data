@@ -7,16 +7,18 @@ dev:
 robot:
   build: robot/
   volumes:
-     - ./:/repo/
-  working_dir: /repo/robot
+     - ./:/cinder/
+  working_dir: /cinder/robot
   links:
     - server
 
 docs:
   build: docs/
   volumes:
-     - ./docs:/docs
-  working_dir: /docs
+     - ./:/cinder/
+  working_dir: /cinder/docs
+  environment:
+    - PYTHONPATH=/cinder/
 
 client:
   build: .

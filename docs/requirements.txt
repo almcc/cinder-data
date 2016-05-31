@@ -4,3 +4,4 @@ sphinxcontrib-actdiag
 sphinxcontrib-nwdiag
 sphinxcontrib-seqdiag
 sphinx_rtd_theme
+sphinxcontrib-napoleon

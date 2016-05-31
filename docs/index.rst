@@ -8,11 +8,24 @@ Welcome to Cinder Data's documentation!
 
 A library inspired by ember-data for python projects.
 
-Contents:
-
 .. toctree::
+   :caption: User Documentation
    :maxdepth: 2
 
+   user/index
+
+.. toctree::
+   :caption: Developer Documentation
+   :maxdepth: 2
+
+   developer/index
+
+
+.. toctree::
+   :caption: Source Documentation
+   :maxdepth: 2
+
+   source/modules
 
 
 Indices and tables
