@@ -1,6 +1,3 @@
-"""Cinder Data caching systems."""
-
-
 class Cache(object):
     """Cache interface."""
 

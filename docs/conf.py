@@ -18,8 +18,10 @@ import os
 
 from sphinx.apidoc import main
 
+
 # Doing what is recomemed by https://github.com/rtfd/readthedocs.org/issues/1139
 def run_apidoc(_):
+    """Heler function for run apidoc as part of the build."""
     current_directory = os.path.abspath(os.path.dirname(__file__))
     output_path = os.path.join(current_directory, 'source')
     cmd_path = 'sphinx-apidoc'
@@ -28,7 +30,9 @@ def run_apidoc(_):
         cmd_path = os.path.abspath(os.path.join(sys.prefix, 'bin', 'sphinx-apidoc'))
     main([cmd_path, '-e', '-o', output_path, '../cinder_data', '--force'])
 
+
 def setup(app):
+    """Blind copy from issue 1139 on readthedocs to run run_apidoc."""
     app.connect('builder-inited', run_apidoc)
 
 # If extensions (or modules to document with autodoc) are in another directory,
@@ -128,7 +132,7 @@ todo_include_todos = False
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = "sphinx_rtd_theme"
+html_theme = 'sphinx_rtd_theme'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the

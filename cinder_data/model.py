@@ -1,5 +1,3 @@
-"""Cinder Data starter models."""
-
 from schematics.models import Model
 from schematics.types import DateTimeType, IntType
 

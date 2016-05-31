@@ -1,5 +1,3 @@
-"""The Cinder Data store."""
-
 import inflection
 import requests
 
