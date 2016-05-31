@@ -1,6 +1,9 @@
+import abc
+
 class Cache(object):
     """Cache interface"""
 
+    @abc.abstractmethod
     def get_record(self, name, record_id):
         """Should retrieve a record with a given type name and record id.
 
@@ -16,6 +19,7 @@ class Cache(object):
         """
         raise NotImplementedError()
 
+    @abc.abstractmethod
     def get_records(self, name):
         """Should get all the records in the cache under a given name.
 
@@ -30,6 +34,7 @@ class Cache(object):
         """
         raise NotImplementedError()
 
+    @abc.abstractmethod
     def set_record(self, name, record_id, record):
         """Should save the record to the cache.
 
