@@ -16,10 +16,12 @@ coverage==4.5.1
 decorator==4.3.0          # via ipython, traitlets
 entrypoints==0.2.3        # via nbconvert
 first==2.0.1              # via pip-tools
+flake8==3.5.0
 future==0.16.0            # via python-language-server
 html5lib==1.0.1           # via bleach
 idna==2.7                 # via requests
 inflection==0.3.1
+invoke==1.1.1
 ipykernel==4.8.2          # via ipywidgets, jupyter, jupyter-console, notebook, qtconsole
 ipython-genutils==0.2.0   # via nbformat, notebook, qtconsole, traitlets
 ipython==6.5.0
@@ -34,7 +36,7 @@ jupyter-core==4.4.0       # via jupyter-client, nbconvert, nbformat, notebook, q
 jupyter==1.0.0
 lazy-object-proxy==1.3.1  # via astroid
 markupsafe==1.0           # via jinja2
-mccabe==0.6.1             # via pylint, python-language-server
+mccabe==0.6.1             # via flake8, pylint, python-language-server
 mistune==0.8.3            # via nbconvert
 mock==2.0.0
 nbconvert==5.3.1          # via jupyter, notebook
@@ -51,9 +53,9 @@ pluggy==0.7.1             # via python-language-server
 prometheus-client==0.3.1  # via notebook
 prompt-toolkit==1.0.15    # via ipython, jupyter-console
 ptyprocess==0.6.0         # via pexpect, terminado
-pycodestyle==2.4.0        # via autopep8, python-language-server
+pycodestyle==2.3.1        # via autopep8, flake8, python-language-server
 pydocstyle==2.1.1         # via python-language-server
-pyflakes==2.0.0           # via python-language-server
+pyflakes==1.6.0           # via flake8, python-language-server
 pygments==2.2.0           # via ipython, jupyter-console, nbconvert, qtconsole
 pylint==2.1.1
 python-dateutil==2.7.3    # via jupyter-client

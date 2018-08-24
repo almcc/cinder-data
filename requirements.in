@@ -1,11 +1,15 @@
 # Package requirements defined in setup.py
 
 # Developer requirements
+flake8
+pylint
+
 nose
 coverage
 mock
 pylint
 pip-tools
+invoke
 
 # Atom IDE requirements
 python-language-server[all]

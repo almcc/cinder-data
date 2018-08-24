@@ -1,16 +1,10 @@
-sudo: required
 language: python
 python:
-- '2.7'
+- '3.6'
 install:
-- pip install fabric
-services:
-- docker
+- pip install -r requirements.txt
 script:
-- fab run_linter
-- fab run_unit_tests
-- fab build_docs
-- fab run_robot_tests
+- invoke lint
 deploy:
   provider: pypi
   user: almcc
