@@ -1,3 +1,6 @@
+# TODO Sort out requirements
+# https://almcc.me/blog/2018/06/01/using-pip-tool-to-organise-python-requirements/
+
 inflection>=0.3.1
 requests>=2.10.0
 schematics>=1.1.1

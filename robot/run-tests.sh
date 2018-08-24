@@ -1,3 +1,4 @@
+# TODO: Switch to python-behave
 cd ../
 python setup.py install
 cd -

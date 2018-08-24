@@ -1,7 +1,9 @@
+# TODO:10 Switch fab to invoke
+# https://almcc.me/blog/2018/06/03/python-invoke-with-tab-completion/
+
 from fabric.api import local, settings
 from fabric.colors import yellow
 import time
-
 
 def prep_docker():
     """Pull and build the required docker containers."""

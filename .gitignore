@@ -1,3 +1,5 @@
+# Python things
+venv/
 *.pyc
 .coverage
 MANIFEST

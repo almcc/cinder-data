@@ -1,3 +1,6 @@
+# TODO Move example server out of repo into a seperate repo, with docker image on docker-hub
+
+
 from cinder_data.model import DjangoModel
 from cinder_data.store import Store
 from cinder_data.cache import MemoryCache
