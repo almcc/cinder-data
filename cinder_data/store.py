@@ -2,7 +2,7 @@ import inflection
 import requests
 
 
-class Store(object):
+class Store():
     """A central store for all CRUD like activilty for models."""
 
     def __init__(self, host, namespace='', cache=None):
@@ -31,12 +31,12 @@ class Store(object):
 
         Returns:
             :class:`cinder_data.model.CinderModel`: An instance of model_class or None.
+
         """
         cached_model = self.peek_record(model_class, record_id)
         if cached_model is not None and reload is False:
             return cached_model
-        else:
-            return self._get_record(model_class, record_id)
+        return self._get_record(model_class, record_id)
 
     def peek_record(self, model_class, record_id):
         """Return an instance of the model_class from the cache if it is present.
@@ -48,13 +48,13 @@ class Store(object):
 
         Returns:
             :class:`cinder_data.model.CinderModel`: An instance of model_class or None.
+
         """
         if self._cache:
             return self._cache.get_record(model_class.__name__, record_id)
-        else:
-            return None
+        return None
 
-    def find_all(self, model_class, params={}):
+    def find_all(self, model_class, params=None):
         """Return an list of models from the API and caches the result.
 
         Args:
@@ -64,7 +64,11 @@ class Store(object):
 
         Returns:
             list: A list of instances of you model_class or and empty list.
+
         """
+        if params is None:
+            params = {}
+
         url = '{host}/{namespace}/{model}{params}'.format(
             host=self._host,
             namespace=self._namespace,
@@ -91,11 +95,11 @@ class Store(object):
 
         Returns:
             list: A list of instances of you model_class or and empty list.
+
         """
         if self._cache:
             return self._cache.get_records(model_class.__name__)
-        else:
-            return []
+        return []
 
     def _get_record(self, model_class, record_id):
         """Get a single record from the API.
@@ -107,6 +111,7 @@ class Store(object):
 
         Returns:
             :class:`cinder_data.model.CinderModel`: An instance of model_class or None.
+
         """
         url = '{host}/{namespace}/{model}/{id}'.format(
             host=self._host,
@@ -124,13 +129,14 @@ class Store(object):
 
     @staticmethod
     def _get_json(url):
-        """Helper function for getting JSON from the API.
+        """Get url and return as json.
 
         Args:
             url (string): A valid url which will return JSON.
 
         Returns:
             object: A serialised JSON object.
+
         """
         request = requests.get(url)
         return request.json()
@@ -146,6 +152,7 @@ class Store(object):
 
         Returns:
             string: A pluraised, dasherized string.
+
         """
         underscored = inflection.underscore(name)
         dasherized = inflection.dasherize(underscored)
@@ -163,12 +170,13 @@ class Store(object):
 
         Returns:
             string: A valid url query params string.
+
         """
         pairs = []
         for key, value in params.iteritems():
             if value is None:
                 value = ''
             pairs.append('{0}={1}'.format(key, value))
-        if len(pairs) > 0:
+        if pairs:
             return '?{0}'.format('&'.join(pairs))
         return ''

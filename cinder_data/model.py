@@ -11,6 +11,7 @@ class CinderModel(Model):
 
     Attributes:
         id (:class:`schematics.types.base.IntType`): The model id.
+
     """
 
     id = IntType(required=True)
@@ -22,6 +23,7 @@ class DjangoModel(CinderModel):
     Attributes:
         created_at (:class:`schematics.types.base.DateTimeType`): Django admin created_at
         updated_at (:class:`schematics.types.base.DateTimeType`): Django admin updated_at
+
     """
 
     created_at = DateTimeType()

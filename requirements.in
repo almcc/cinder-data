@@ -2,6 +2,10 @@
 
 # Developer requirements
 flake8
+flake8-isort
+flake8-quotes
+flake8-string-format
+flake8-docstrings
 pylint
 
 nose

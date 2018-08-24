@@ -60,7 +60,7 @@ def lint_flake8(ctx):
 @task
 def lint_pylint(ctx):
     print('Pylint report:')
-    ctx.run('pylint {src}'.format(src=SOURCE_FILES))
+    ctx.run('pylint --rcfile=tox.ini {src}'.format(src=SOURCE_FILES))
 
 
 @task(lint_flake8, lint_pylint)
