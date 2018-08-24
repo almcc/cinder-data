@@ -1,0 +1,16 @@
+# Package requirements defined in setup.py
+
+# Developer requirements
+nose
+coverage
+mock
+pylint
+pip-tools
+
+# Atom IDE requirements
+python-language-server[all]
+isort
+
+# Helper tools (personal preference)
+ipython
+jupyter

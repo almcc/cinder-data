@@ -62,3 +62,11 @@ def run_ci_targets():
     run_unit_tests()
     build_docs()
     run_robot_tests()
+
+
+def sync_venv():
+    local('pip sync requirements.txt')
+
+
+def update_requirements():
+    local('pip-compile --upgrade --output-file requirements.txt setup.py requirements.in')
