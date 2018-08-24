@@ -35,5 +35,5 @@ Building
 --------
 
 `travis-ci.org <https://travis-ci.org/almcc/cinder-data>`_ builds cinder-data, if
-there is a tag (should be in the form v<major>.<minor>.<fix>) it will also publish
-a pip package to `pypi <https://pypi.python.org/pypi/cinder-data/0.0.1>`_.
+there is a tag (should be in the form v<major>.<minor>.<patch>) it will also publish
+a pip package to `pypi <https://pypi.python.org/pypi/cinder-data/>`_.

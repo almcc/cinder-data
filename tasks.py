@@ -17,28 +17,6 @@ def build_docs(ctx):
     print(('WARNING, did you install the cinder_data package? '
            'Source docs will not have been included if not.'))
 
-# @task
-# def run_unit_tests(ctx):
-#     """Build the dev image and runs the unit tests."""
-#     long_command = 'docker-compose run --rm dev ' \
-#         'nosetests --verbosity=2 -s --with-coverage --cover-package=cinder_data ' \
-#         '--cover-inclusive --cover-erase --cover-branches --cover-html ' \
-#         '--cover-html-dir=coverage-report/ tests/'
-#     ctx.run(long_command)
-#
-#
-# @task
-# def run_robot_tests(ctx):
-#     """Run the robot test suites in robot/suites/* and put the report in robot/reports directory."""
-#     ctx.run('docker-compose up -d db')
-#     time.sleep(5)  # Sleeping to allow time for database to come online.
-#     ctx.run('docker-compose up -d server')
-#     time.sleep(3)  # Sleeping to allow server to migrate the database and import the fixtures.
-#     with settings(warn_only=True):
-#         ctx.run('docker-compose run --rm robot bash run-tests.sh')
-#     ctx.run('docker-compose stop')
-#     ctx.run('docker-compose rm -f')
-
 
 @task
 def lint_flake8(ctx):
@@ -75,3 +53,13 @@ def update_requirements(ctx):
 def changed_requirement(ctx):
     """Update the requirements.txt file and sync the environment."""
     pass
+
+
+@task
+def bump_version(ctx, part, confirm=False):
+    """Bump the package version."""
+    if confirm:
+        ctx.run('bumpversion {part}'.format(part=part))
+    else:
+        ctx.run('bumpversion --dry-run --allow-dirty --verbose {part}'.format(part=part))
+        print('Add "--confirm" to actually perform the bump version.')

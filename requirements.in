@@ -7,11 +7,10 @@ flake8-quotes
 flake8-string-format
 flake8-docstrings
 pylint
+pytest
+pyhamcrest
+bumpversion
 
-nose
-coverage
-mock
-pylint
 pip-tools
 invoke
 

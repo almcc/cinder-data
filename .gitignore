@@ -3,3 +3,4 @@ venv/
 *.pyc
 dist/
 cinder_data.egg-info/
+.pytest_cache/

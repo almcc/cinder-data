@@ -1,4 +1,0 @@
-robotframework>=3.0
-docutils
-requests
-robotframework-requests

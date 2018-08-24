@@ -1,8 +1,6 @@
 from setuptools import setup, find_packages
 setup(
     name='cinder-data',
-    # TODO: Add a bumpversion config
-    # https://almcc.me/blog/2018/07/11/managing-version-with-bumpversion/
     version='0.0.1',
     packages=find_packages(),
     author='Alastair McClelland',
