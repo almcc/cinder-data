@@ -15,6 +15,15 @@ pylint
 pip-tools
 invoke
 
+# Docs requirements
+Sphinx
+sphinxcontrib-blockdiag
+sphinxcontrib-actdiag
+sphinxcontrib-nwdiag
+sphinxcontrib-seqdiag
+sphinx_rtd_theme
+sphinxcontrib-napoleon
+
 # Atom IDE requirements
 python-language-server[all]
 isort

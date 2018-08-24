@@ -2,32 +2,21 @@ from invoke import task
 
 SOURCE_FILES = 'cinder_data/'
 
-# @task
-# def prep_docker(ctx):
-#     """Pull and build the required docker containers."""
-#     ctx.run('docker-compose pull')
-#     ctx.run('docker-compose build')
-#
-#
-# @task
-# def stop_and_clean_docker(ctx):
-#     """Stop all the containers and clean up."""
-#     ctx.run('docker-compose stop')
-#     ctx.run('docker-compose rm -f')
-#
-#
-# @task
-# def build_package(ctx):
-#     """Build the pip packages."""
-#     ctx.run('docker-compose run --rm dev python setup.py sdist')
-#
-#
-# @task
-# def build_docs(ctx):
-#     """Build the html site and pdf file from the sphinx source."""
-#     ctx.run('docker-compose run --rm docs bash make-docs.sh')
-#
-#
+
+@task
+def build_package(ctx):
+    """Build the pip packages."""
+    ctx.run('python setup.py sdist')
+
+
+@task
+def build_docs(ctx):
+    """Build the html site and pdf file from the sphinx source."""
+    with ctx.cd('docs/'):
+        ctx.run('make html')
+    print(('WARNING, did you install the cinder_data package? '
+           'Source docs will not have been included if not.'))
+
 # @task
 # def run_unit_tests(ctx):
 #     """Build the dev image and runs the unit tests."""
@@ -53,19 +42,21 @@ SOURCE_FILES = 'cinder_data/'
 
 @task
 def lint_flake8(ctx):
+    """Run the flake8 linter."""
     print('Flake8 report:')
     ctx.run('flake8 {src}'.format(src=SOURCE_FILES))
 
 
 @task
 def lint_pylint(ctx):
+    """Run the pylint linter."""
     print('Pylint report:')
     ctx.run('pylint --rcfile=tox.ini {src}'.format(src=SOURCE_FILES))
 
 
 @task(lint_flake8, lint_pylint)
 def lint(ctx):
-    """Run the linter tools against he source."""
+    """Run the linter tools against the source."""
 
 
 @task
@@ -82,4 +73,5 @@ def update_requirements(ctx):
 
 @task(update_requirements, sync_venv)
 def changed_requirement(ctx):
+    """Update the requirements.txt file and sync the environment."""
     pass
