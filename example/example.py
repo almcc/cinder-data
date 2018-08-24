@@ -1,6 +1,3 @@
-# TODO Move example server out of repo into a seperate repo, with docker image on docker-hub
-
-
 from cinder_data.model import DjangoModel
 from cinder_data.store import Store
 from cinder_data.cache import MemoryCache
@@ -17,23 +14,23 @@ class Car(DjangoModel):
 
 if __name__ == '__main__':
     cache = MemoryCache()
-    store = Store('http://server:8000', 'api/v1', cache=cache)
+    store = Store('http://localhost:8000', 'api/v1', cache=cache)
 
     record = store.find_record(Car, 1)
     record = store.find_record(Car, 1, reload=True)
 
     records = store.find_all(Car)
     for record in records:
-        print record.name
+        print(record.name)
 
     records = store.find_all(Car, params={'page': 2})
     for record in records:
-        print record.name
+        print(record.name)
 
     records = store.find_all(Manufacturer)
     for record in records:
-        print record.name
+        print(record.name)
 
     records = store.peek_all(Car)
     for record in records:
-        print record.name
+        print(record.name)

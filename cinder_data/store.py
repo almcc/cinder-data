@@ -173,7 +173,7 @@ class Store():
 
         """
         pairs = []
-        for key, value in params.iteritems():
+        for key, value in params.items():
             if value is None:
                 value = ''
             pairs.append('{0}={1}'.format(key, value))

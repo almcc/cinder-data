@@ -1,0 +1,6 @@
+version: "2"
+services:
+  api:
+    image: almcc/cinder-data-test-server:latest
+    ports:
+      - 8000:8000
