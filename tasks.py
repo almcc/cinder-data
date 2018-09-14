@@ -38,6 +38,23 @@ def lint(ctx):
 
 
 @task
+def test_unit(ctx):
+    """Run the pytest unit tests."""
+    print('No unit tests yet!')
+
+
+@task
+def test_features(ctx):
+    """Run the behave feature tests."""
+    ctx.run('behave features')
+
+
+@task(test_unit, test_features)
+def tests(ctx):
+    """Run the unit tests and the feature tests."""
+
+
+@task
 def sync_venv(ctx):
     """Sync the local pip environment with requirements.txt."""
     ctx.run('pip-sync requirements.txt')
@@ -50,9 +67,9 @@ def update_requirements(ctx):
 
 
 @task(update_requirements, sync_venv)
-def changed_requirement(ctx):
+def changed_requirements(ctx):
     """Update the requirements.txt file and sync the environment."""
-    pass
+    ctx.run('pip install -e .')
 
 
 @task
@@ -63,3 +80,15 @@ def bump_version(ctx, part, confirm=False):
     else:
         ctx.run('bumpversion --dry-run --allow-dirty --verbose {part}'.format(part=part))
         print('Add "--confirm" to actually perform the bump version.')
+
+
+@task
+def set_notebook_theme(ctx):
+    """Set the jupyter notebook theme."""
+    ctx.run('jt -t monokai -T -f firacode')
+
+
+@task(set_notebook_theme)
+def launch_notebooks(ctx):
+    """Launch a jupyter notebook server."""
+    ctx.run('jupyter notebook --notebook-dir=notebooks/ --no-browser')

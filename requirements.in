@@ -10,16 +10,12 @@ pylint
 pytest
 pyhamcrest
 bumpversion
-
 pip-tools
 invoke
+behave
 
 # Docs requirements
 Sphinx
-sphinxcontrib-blockdiag
-sphinxcontrib-actdiag
-sphinxcontrib-nwdiag
-sphinxcontrib-seqdiag
 sphinx_rtd_theme
 sphinxcontrib-napoleon
 
@@ -30,3 +26,4 @@ isort
 # Helper tools (personal preference)
 ipython
 jupyter
+jupyterthemes
